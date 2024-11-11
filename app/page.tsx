@@ -1,22 +1,22 @@
 "use client";
 import Image from "next/image";
-// import Hero from "./components/hero";
+import kids from "../public/kids.jpg";
 import Card from "./components/home/card";
-// import ProductSection from "./components/product-section";
 
 export default function Home() {
   return (
     <>
-      <div className="relative h-screen overflow-auto ">
+      <div className="relative block h-screen  overflow-auto ">
         <Image
-          src="/kids.jpg"
+          src={kids}
+          sizes="100vw"
           alt="kids"
-          fill={true}
+          fill
           className="object-cover"
+          priority
         />
-        <div className="h-[40vh]"> </div>
-
-        <div className="  grid grid-cols-2 gap-1  md:grid-cols-3 justify-items-center">
+        <div className="h-[40vh] "> </div>
+        <div className=" grid grid-cols-2 gap-1  md:grid-cols-3 justify-items-center">
           <Card
             img="IL201810192326044535.jpg_300x400x80"
             title="Get your new gadget today"
