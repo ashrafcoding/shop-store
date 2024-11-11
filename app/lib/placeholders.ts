@@ -5160,12 +5160,6 @@ export const products = [{
   },
   {
     "_id": {
-      "$oid": "602a24c72e547d49fff1d6df"
-    },
-    "__v": 0
-  },
-  {
-    "_id": {
       "$oid": "5fe384095ae5c5119e889bae"
     },
     "name": "LCD Handwriting Board 8.5 Inch Intelligent Electronic Graffiti Writing Tablet",
@@ -6733,12 +6727,6 @@ export const products = [{
     "description": "Women's Slippers Adorable Bow Shape Anti-slip Slippers",
     "category": "furniture",
     "img": "IL201812210036596660.jpg_300x400x80.jpg"
-  },
-  {
-    "_id": {
-      "$oid": "602a2632dc2e264aa5cc67cd"
-    },
-    "__v": 0
   },
   {
     "_id": {
