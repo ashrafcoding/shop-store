@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
-import kids from "../public/kids.jpg";
-import Card from "./components/home/card";
+import kids from "@/public/kids.jpg";
+import Card from "@/components/ui/home/card";
 
 export default function Home() {
   return (
