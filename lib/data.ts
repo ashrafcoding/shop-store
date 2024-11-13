@@ -11,3 +11,13 @@ export async function getProductsByCategory (category: string) {
     }
      
 }
+
+export async function getProductById(id: string) {
+    try {
+      const result = await sql`SELECT * FROM products WHERE id = ${id}`;
+      return result.rows[0];
+    } catch (error) {
+      console.error('Database Error:', error);
+      throw new Error('Failed to fetch product by ID.');
+    }
+  }

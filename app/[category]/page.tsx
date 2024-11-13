@@ -2,7 +2,7 @@ import ProductCard from "@/components/ui/product-card";
 import { getProductsByCategory } from "@/lib/data";
 import Image from "next/image";
 export default async function page({params}:{params:Promise<{category:string}>}) {
-  const category = (await params).category
+  const category = (await params).category  
   const products = await getProductsByCategory(category);
 
   return (

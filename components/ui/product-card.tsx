@@ -5,9 +5,11 @@ import Link from 'next/link'
 
 export default function ProductCard({product}:{product:Product}) {
     const cloudinaryUrl = 'https://res.cloudinary.com/dnbtcv8mr/image/upload/v1731223851/'; 
+    const category = product.category
+    const id = product.id
 
   return (
-    <Link href={`/{product.category}/${product.id}`} className="block hover:border-2 overflow-hidden flex-col gap-2 rounded-lg p-4 h-81 shadow-lg shadow-indigo-100 max-w-md ">
+    <Link href={`/${category}/${id}`} className="block hover:border-2 overflow-hidden flex-col gap-2 rounded-lg p-4 h-81 shadow-lg shadow-indigo-100 max-w-md ">
       <Image
       width={300}
       height={400}
