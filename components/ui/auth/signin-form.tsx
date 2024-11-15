@@ -1,79 +1,60 @@
-'use client';
-import { Button } from '@/components/ui/sidebar/button';
-// import { useActionState } from 'react';
-// import { authenticate } from '@/app/lib/actions';
+"use client";
+
 import Link from "next/link";
 
+// import { useActionState } from 'react';
+// import { authenticate } from '@/app/lib/actions';
 
 export default function SignInForm() {
-  
-
   return (
-    <form action="" className="space-y-3">
-      <div className="flex-1 rounded-lg bg-gray-50 px-6 pb-4 pt-8">
-        <h1 className={`mb-3 text-2xl`}>
-          Please log in to continue.
-        </h1>
-        <div className="w-full">
-          <div>
+    <main className="flex items-center justify-center  p-4">
+      <div className=" min-w-lg lg:max-w-3xl">
+        <form action="#" className="mt-8 grid w-full  gap-6">
+          <div className="col-span-10">
             <label
-              className="mb-3 mt-5 block text-xs font-medium text-gray-900"
-              htmlFor="email"
+              htmlFor="Email"
+              className="block text-sm font-medium text-gray-700"
             >
-              Email
+              {" "}
+              Email{" "}
             </label>
-            <div className="relative">
-              <input
-                className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
-                id="email"
-                type="email"
-                name="email"
-                placeholder="Enter your email address"
-                required
-              />
-              
-            </div>
+            <input
+              type="email"
+              id="Email"
+              name="email"
+              className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+            />
           </div>
-          <div className="mt-4">
+          <div className="col-span-10">
             <label
-              className="mb-3 mt-5 block text-xs font-medium text-gray-900"
-              htmlFor="password"
+              htmlFor="Password"
+              className="block text-sm font-medium text-gray-700"
             >
-              Password
+              {" "}
+              Password{" "}
             </label>
-            <div className="relative">
-              <input
-                className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
-                id="password"
-                type="password"
-                name="password"
-                placeholder="Enter password"
-                required
-                minLength={6}
-              />
-            </div>
+            <input
+              type="password"
+              id="Password"
+              name="password"
+              className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+            />
           </div>
-        </div>
-        <Button className="mt-4 w-full" aria-disabled={false}>
-          Log in 
-        </Button>
-        <Link
-        href="/signup"
-        >
-        <Button className="mt-4 w-full" aria-disabled={false}>
-          Sign up 
-        </Button>
-        </Link>
-        <div className="flex h-8 items-end space-x-1">
-          {/* Add form errors here */}
-          {false && (
-            <>
-              
-              <p className="text-sm text-red-500">{"errorMessage"}</p>
-            </>
-          )}
+          <div className="col-span-6"></div>
+          <div className="col-span-10 sm:flex sm:items-center sm:gap-4">
+            <button className=" inline-block w-full rounded-md border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500">
+              login
+            </button>            
+          </div>
+          
+        </form>
+        <div className="mt-6 text-center text-sm text-gray-500">
+          Don&apos;t have an account?{" "}
+          <Link href="/signup" className="font-medium text-gray-700 hover:underline">
+            Sign up
+          </Link>
         </div>
       </div>
-    </form>
+    </main>
   );
 }
