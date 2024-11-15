@@ -1,7 +1,7 @@
+import { cloudinaryUrl } from "@/lib/data";
 import Image from "next/image";
 
 export default function Card({img,title}:{img:string,title:string}) {
-    const cloudinaryUrl = 'https://res.cloudinary.com/dnbtcv8mr/image/upload/v1731223851/'; 
   return (
     <article className="relative overflow-hidden rounded-lg shadow-lg transition hover:shadow-lg max-w-md w-full">
       <Image

@@ -1,6 +1,9 @@
 import { sql } from '@vercel/postgres';
 import {Product} from './definitions'
 
+export const cloudinaryUrl =
+"https://res.cloudinary.com/dnbtcv8mr/image/upload/v1731223851/";
+
 export async function getProductsByCategory (category: string) {
     try {
         const result = await sql`SELECT * FROM products WHERE category = ${category} ORDER BY RANDOM() LIMIT 12`;
