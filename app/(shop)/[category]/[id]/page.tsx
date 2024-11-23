@@ -1,16 +1,21 @@
-import { cloudinaryUrl, getProductById, getProductsByCategory } from "@/lib/data";
+import {
+  getProductById,
+  getProductsByCategory,
+} from "@/lib/data";
 import Image from "next/image";
+import AddToCart from "@/components/ui/cart-button";
+import { Product,cloudinaryUrl } from "@/lib/definitions";
 
-export default async function page({
+export default async function ProductPage({
   params,
 }: {
   params: Promise<{ category: string; id: string }>;
 }) {
   const id = (await params).id;
   const category = (await params).category;
-  const product = await getProductById(id);
+  const product: Product = await getProductById(id) as Product;
   const products = await getProductsByCategory(category);
-  
+
   const similarItems = products.slice(0, 6);
   return (
     <div className="container mx-auto px-4 py-8">
@@ -28,14 +33,9 @@ export default async function page({
           <h1 className="text-3xl font-bold mb-4">{product.name}</h1>
           <p className="text-gray-700 mb-4">{product.description}</p>
           <p className="text-2xl font-bold mb-2">Price: {product.price}</p>
-          <p className="text-gray-700">Stock: {product.stockQuantity}</p>
-
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">
-            Add to Cart
-          </button>
+          <AddToCart product={product} />
         </div>
       </div>
-
       <h2 className="text-2xl font-bold mt-8">Recommended Products</h2>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-4">
         {similarItems.map((product) => (
@@ -55,5 +55,6 @@ export default async function page({
         ))}
       </div>
     </div>
+      
   );
 }

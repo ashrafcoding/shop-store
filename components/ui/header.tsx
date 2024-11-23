@@ -1,10 +1,13 @@
-import Image from "next/image"
+import Image from "next/image";
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
+import CartCount from "./cart-count";
+// import Cart from "./cart";
 
 export default function Header() {
   return (
-    <header className="border-b border-gray-200 dark:border-gray-200/10">
+    <header className="  border-b border-gray-200 dark:border-gray-200/10">
       <div className="mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8">
-        <Image src="/logo.svg" alt="logo" width={50} height={50} />
+        <Image src="/logo.svg" alt="logo" width={50} height={50} className="w-auto" />
         <div className="flex flex-1 items-center justify-end md:justify-between">
           <nav aria-label="Global" className="hidden md:block">
             <ul className="flex items-center gap-6 text-sm">
@@ -13,7 +16,7 @@ export default function Header() {
                   className="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
                   href="#"
                 >
-                 Home
+                  Home
                 </a>
               </li>
 
@@ -51,26 +54,27 @@ export default function Header() {
                 >
                   Contact Us
                 </a>
-              </li>          
+              </li>
             </ul>
           </nav>
 
           <div className="flex items-center gap-4">
-            <div className="sm:flex sm:gap-4">
-              <a
-                className="block rounded-md bg-primary px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-500 dark:hover:bg-teal-500"
-                href="#"
-              >
-                Login
-              </a>
-
-              <a
-                className="hidden rounded-md  px-5 py-2.5 text-sm font-medium text-white  transition  sm:block  dark:bg-gray-800 dark:hover:bg-teal-500"
-                href="#"
-              >
-                Register
-              </a>
+            <div className="flex items-center gap-4 ">
+              
+              <CartCount />
+             
+              <SignedIn>
+                {/* Mount the UserButton component */}
+                <UserButton />
+              </SignedIn>
+              <SignedOut>
+                {/* Signed out users get sign in button */}
+                <div className="bg-gray-100 p-2 rounded text-blue-600 ">
+                  <SignInButton />
+                </div>
+              </SignedOut>
             </div>
+           
 
             <button className="block rounded bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden dark:bg-gray-800 dark:text-white dark:hover:text-white/75">
               <span className="sr-only">Toggle menu</span>
@@ -92,6 +96,7 @@ export default function Header() {
           </div>
         </div>
       </div>
+      {/* <Cart /> */}
     </header>
   );
 }

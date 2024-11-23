@@ -1,13 +1,16 @@
 import SideNav from "@/components/sideNav";
 import Footer from "@/components/ui/footer";
 import Header from "@/components/ui/header";
+import { CartProvider } from "@/context/cart-context";
 
-export default function Layout({children}:{children:React.ReactNode}) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div>first layout after RootLayout
-      <Header />
+    <CartProvider>
+      <div>
+        <Header />
         <SideNav>{children}</SideNav>
         <Footer />
-    </div>
-  )
+      </div>
+    </CartProvider>
+  );
 }

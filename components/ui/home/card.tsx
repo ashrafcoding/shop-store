@@ -1,4 +1,4 @@
-import { cloudinaryUrl } from "@/lib/data";
+import { cloudinaryUrl } from "@/lib/definitions";
 import Image from "next/image";
 
 export default function Card({img,title}:{img:string,title:string}) {
@@ -8,16 +8,15 @@ export default function Card({img,title}:{img:string,title:string}) {
       width={300}
       height={400}
         alt=""
-        src={cloudinaryUrl + img + ".jpg"}
+        src={cloudinaryUrl + img }
         className="absolute inset-0 h-full w-full object-cover"
       />
-
       <div className="relative bg-gradient-to-t from-gray-900/50 to-gray-900/25 pt-32 sm:pt-48 lg:pt-64">
         <div className="p-4 sm:p-6">
-          <a href="#">
-            <h3 className="mt-0.5 text-lg font-bold text-white">
-              {title}
-            </h3>
+          <a href={`/${title}`}>
+            <p className="mt-0.5 text-lg font-bold text-white">
+              Enjoy Shoping from {title} section
+            </p>
           </a>
           
         </div>

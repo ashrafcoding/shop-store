@@ -1,10 +1,10 @@
 import { Product } from "@/lib/definitions";
 import Image from "next/image";
 import Link from 'next/link'
+import {cloudinaryUrl} from '@/lib/definitions'
 
 
 export default function ProductCard({product}:{product:Product}) {
-    const cloudinaryUrl = 'https://res.cloudinary.com/dnbtcv8mr/image/upload/v1731223851/'; 
     const category = product.category
     const id = product.id
 
@@ -15,7 +15,7 @@ export default function ProductCard({product}:{product:Product}) {
       height={400}
         alt=""
         src={cloudinaryUrl + product.img }
-        unoptimized
+        // unoptimized
         className="w-full h-72 rounded-md object-contain"
       />
 
