@@ -15,7 +15,7 @@ export default function Card({img,title}:{img:string,title:string}) {
         <div className="p-4 sm:p-6">
           <a href={`/${title}`}>
             <p className="mt-0.5 text-lg font-bold text-white">
-              Enjoy Shoping from {title} section
+              Enjoy Shopping from {title} section
             </p>
           </a>
           

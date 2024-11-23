@@ -1,6 +1,7 @@
 'use client'
-// import { useCart } from '@/context/cart-context';
-// import { useUser } from '@clerk/nextjs';
+import { makeOrder } from '@/lib/actions';
+import { useCart } from '@/context/cart-context';
+import { useUser } from '@clerk/nextjs';
 import {useStripe, useElements, PaymentElement} from '@stripe/react-stripe-js';
 import { useState } from 'react';
 
@@ -8,8 +9,8 @@ export default function CheckoutForm({amount}: {amount: number}) {
     const stripe = useStripe();
     const elements = useElements();
     const [errorMessage, seterrorMessage] = useState("")
-    // const { cartItems, setCartItems } = useCart();
-    // const { user } = useUser();
+    const {  setCartItems } = useCart();
+    const { user } = useUser();
   
     const handleSubmit = async (event: { preventDefault: () => void; }) => {
       event.preventDefault();
@@ -31,9 +32,16 @@ export default function CheckoutForm({amount}: {amount: number}) {
         },
         body: JSON.stringify({ amount : amount }),
       })
+
+      if (res.ok) {
+        seterrorMessage("")
+        if(user){
+          await makeOrder(user.id, amount)
+          setCartItems([])
+        } 
+      }
   
       const  clientSecret  = await res.json();
-      console.log(clientSecret);
       
       const result = await stripe.confirmPayment({
         clientSecret,
@@ -43,11 +51,15 @@ export default function CheckoutForm({amount}: {amount: number}) {
           return_url: "http://localhost:3000/checkout/payment-confirmed",
         },
       });
+
+      
   
       if (result.error) {
         // Show error to your customer (for example, payment details incomplete)
         console.log(result.error.message);
       } else {
+
+      
         // Your customer will be redirected to your `return_url`. For some payment
         // methods like iDEAL, your customer will be redirected to an intermediate
         // site first to authorize the payment, then redirected to the `return_url`.

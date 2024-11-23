@@ -119,6 +119,69 @@ const cartItems = await getProductsManyByIds(userId);
   }
 }
 
+export async function clearCart(userId: string) {
+  try {
+    const {
+      rows: [cart],
+    } = await sql`
+  SELECT * FROM carts WHERE user_id = ${userId}
+`;
+    await sql`
+    DELETE FROM cart_items
+    WHERE cart_id = ${cart.cart_id}
+  `;
+  } catch (error) {
+    console.error("Failed to remove from cart:", error);
+  }
+}
+
+export async function updateQuantity(userId: string, productId: string, quantity: number) {
+  try {
+    const {
+      rows: [cart],
+    } = await sql`
+  SELECT * FROM carts WHERE user_id = ${userId}
+`;
+    await sql`
+    UPDATE cart_items
+    SET quantity = ${quantity}
+    WHERE cart_id = ${cart.cart_id}
+    AND product_id = ${productId}
+  `;
+  } catch (error) {
+    console.error("Failed to update quantity:", error);
+  }
+}
+
+export async function makeOrder(userId: string, total: number) {
+  try {
+    
+    const {rows: [order]} = await sql`
+    INSERT INTO orders (user_id, total_amount, status)
+    VALUES (${userId}, ${total}, 'pending') RETURNING *
+  `;
+  const {rows: [cart]}  = await sql`
+    SELECT * FROM carts WHERE user_id = ${userId}
+  `;
+  const {rows: cartItems} = await sql`
+    SELECT * FROM cart_items WHERE cart_id = ${cart.cart_id}
+  `;
+  for (const item of cartItems) {
+    await sql`
+      INSERT INTO order_items (order_id, product_id, quantity, price)
+      VALUES (${order.order_id}, ${item.product_id}, ${item.quantity}, ${item.price})
+    `;
+  }
+  await sql`
+    DELETE FROM cart_items
+    WHERE cart_id = ${cart.cart_id}
+  `;
+
+  } catch (error) {
+    console.error("Failed to make order:", error);
+  }
+}
+
 export async function signup(state: FormState, formData: FormData) {
   // Validate form fields
   const validatedFields = SignupFormSchema.safeParse({
