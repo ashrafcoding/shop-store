@@ -8,6 +8,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <CartProvider>
       <div>
         <Header />
+        
         <SideNav>{children}</SideNav>
         <Footer />
       </div>
