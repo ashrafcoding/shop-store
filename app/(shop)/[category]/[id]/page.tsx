@@ -3,6 +3,7 @@ import Image from "next/image";
 import AddToCart from "@/components/ui/cart/cart-button";
 import { Product, cloudinaryUrl } from "@/lib/definitions";
 import ProductCard from "@/components/ui/home/product-card";
+import { notFound } from "next/navigation";
 
 export default async function ProductPage({
   params,
@@ -12,6 +13,9 @@ export default async function ProductPage({
   const id = (await params).id;
   const category = (await params).category;
   const product: Product = (await getProductById(id)) as Product;
+  if (!product) {
+    return notFound();
+  }
   const products = await getProductsByCategory(category);
 
   const similarItems = products.slice(0, 6);
