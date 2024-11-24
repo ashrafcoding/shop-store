@@ -17,7 +17,6 @@ export  async function POST (req: Request) {
         amount: Number(amount) * 100,
         currency: 'usd',        
       })  
-      console.log(paymentIntent.client_secret);
        
       return NextResponse.json(paymentIntent.client_secret)
     } catch (err) {

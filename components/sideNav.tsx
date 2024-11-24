@@ -22,6 +22,9 @@ export default function SideNav({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   let link = "";
   const crumbs = pathname.split("/").filter((crumb) => crumb !== "");
+  const last = crumbs[crumbs.length - 1];
+  const regex = /^[0-9a-f]{24}$/i;
+  if (regex.test(last)) crumbs[crumbs.length - 1] = "product details";
 
   return (
     <SidebarProvider>

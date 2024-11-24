@@ -8,6 +8,7 @@ export interface CartItem {
   description: string;
   category: string;
   img: string;
+  quantity: number;
   // Add other properties as needed (e.g., name, price, quantity)
 }
 

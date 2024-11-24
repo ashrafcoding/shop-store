@@ -7,7 +7,7 @@ export default function CartSmall({items}:{items:CartItem[]}) {
   let total = 0;
   items.forEach((item) => {
     const cost = Number(item.price?.slice(1));
-    total += cost;
+    total += cost * item.quantity;
   });
   return (
     <div className="absolute z-20 right-24 top-16 overflow-auto h-96 ">

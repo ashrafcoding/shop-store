@@ -84,7 +84,7 @@ export async function getCartItems(userId: string) {
 export async function getProductsManyByIds(userId: string) {
   try {    
     const result = await sql`
-  SELECT p.*
+  SELECT p.* , ci.quantity
   FROM cart_items ci
   INNER JOIN products p ON ci.product_id = p.id
   WHERE ci.cart_id IN (

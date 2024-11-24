@@ -25,15 +25,15 @@ const data = {
       items: [
         {
           title: "Men's Accessories",
-          url: "#",
+          url: "/men",
         },
         {
           title: "Men's Clothing",
-          url: "#",
+          url: "/men",
         },
         {
           title: "Men's Shoes",
-          url: "#",
+          url: "/men",
         },
       ],
     },
@@ -43,16 +43,16 @@ const data = {
       items: [
         {
           title: "Women's Accessories",
-          url: "#",
+          url: "women",
         },
         {
           title: "Women's Clothing",
-          url: "#",
+          url: "women",
           isActive: true,
         },
         {
           title: "Women's Jewellery",
-          url: "#",
+          url: "/women",
         },     
       ],
     },
@@ -62,15 +62,15 @@ const data = {
       items: [
         {
           title: "Boys' Fashion",
-          url: "#",
+          url: "/kids",
         },
         {
           title: "Girls' Fashion",
-          url: "#",
+          url: "/kids",
         },
         {
           title: "Infants' Fashion",
-          url: "#",
+          url: "/kids",
         },
       ],
     },
@@ -80,11 +80,11 @@ const data = {
       items: [
         {
           title: "Cardio Training",
-          url: "#",
+          url: "/sports",
         },
         {
           title: "Fitness",
-          url: "#",
+          url: "/sports",
         },
        
       ],
@@ -95,11 +95,11 @@ const data = {
       items: [
         {
           title: "Mobile Phones",
-          url: "#",
+          url: "/digitals",
         },
         {
           title: "Video Games",
-          url: "#",
+          url: "/digitals",
         },
       ],
     },
@@ -109,11 +109,11 @@ const data = {
       items: [
         {
           title: "Home Decor",
-          url: "#",
+          url: "/furniture",
         },
         {
           title: "Furniture Collection",
-          url: "#",
+          url: "/furniture",
         },
       ],
     },
