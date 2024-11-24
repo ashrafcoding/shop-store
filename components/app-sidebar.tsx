@@ -1,5 +1,6 @@
 import * as React from "react"
 import { GalleryVerticalEnd } from "lucide-react"
+import Image from "next/image"
 
 import {
   Sidebar,
@@ -19,136 +20,99 @@ import {
 const data = {
   navMain: [
     {
-      title: "Getting Started",
-      url: "#",
+      title: "Men's Fashion",
+      url: "/men",
       items: [
         {
-          title: "Installation",
+          title: "Men's Accessories",
           url: "#",
         },
         {
-          title: "Project Structure",
+          title: "Men's Clothing",
+          url: "#",
+        },
+        {
+          title: "Men's Shoes",
           url: "#",
         },
       ],
     },
     {
-      title: "Building Your Application",
-      url: "#",
+      title: "Women's Fashion",
+      url: "/women",
       items: [
         {
-          title: "Routing",
+          title: "Women's Accessories",
           url: "#",
         },
         {
-          title: "Data Fetching",
+          title: "Women's Clothing",
           url: "#",
           isActive: true,
         },
         {
-          title: "Rendering",
+          title: "Women's Jewellery",
+          url: "#",
+        },     
+      ],
+    },
+    {
+      title: "Kids Fashion",
+      url: "/kids",
+      items: [
+        {
+          title: "Boys' Fashion",
           url: "#",
         },
         {
-          title: "Caching",
+          title: "Girls' Fashion",
           url: "#",
         },
         {
-          title: "Styling",
-          url: "#",
-        },
-        {
-          title: "Optimizing",
-          url: "#",
-        },
-        {
-          title: "Configuring",
-          url: "#",
-        },
-        {
-          title: "Testing",
-          url: "#",
-        },
-        {
-          title: "Authentication",
-          url: "#",
-        },
-        {
-          title: "Deploying",
-          url: "#",
-        },
-        {
-          title: "Upgrading",
-          url: "#",
-        },
-        {
-          title: "Examples",
+          title: "Infants' Fashion",
           url: "#",
         },
       ],
     },
     {
-      title: "API Reference",
-      url: "#",
+      title: "Sports and Outdoor",
+      url: "/sports",
       items: [
         {
-          title: "Components",
+          title: "Cardio Training",
           url: "#",
         },
         {
-          title: "File Conventions",
+          title: "Fitness",
+          url: "#",
+        },
+       
+      ],
+    },
+    {
+      title: "Electronics and Gadgets",
+      url: "/digitals",
+      items: [
+        {
+          title: "Mobile Phones",
           url: "#",
         },
         {
-          title: "Functions",
-          url: "#",
-        },
-        {
-          title: "next.config.js Options",
-          url: "#",
-        },
-        {
-          title: "CLI",
-          url: "#",
-        },
-        {
-          title: "Edge Runtime",
+          title: "Video Games",
           url: "#",
         },
       ],
     },
     {
-      title: "Architecture",
-      url: "#",
+      title: "Furniture and Luggage",
+      url: "/furniture",
       items: [
         {
-          title: "Accessibility",
+          title: "Home Decor",
           url: "#",
         },
         {
-          title: "Fast Refresh",
-          url: "#",
-        },
-        {
-          title: "Next.js Compiler",
-          url: "#",
-        },
-        {
-          title: "Supported Browsers",
-          url: "#",
-        },
-        {
-          title: "Turbopack",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Community",
-      url: "#",
-      items: [
-        {
-          title: "Contribution Guide",
+          title: "Furniture Collection",
           url: "#",
         },
       ],
@@ -163,13 +127,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
-              <a href="#">
-                <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
-                  <GalleryVerticalEnd className="size-4" />
-                </div>
+              <a href="/">               
+                <Image  src="/logo.svg" alt="logo" width={50} height={50} className="w-auto" />
                 <div className="flex flex-col gap-0.5 leading-none">
-                  <span className="font-semibold">Documentation</span>
-                  <span className="">v1.0.0</span>
+                  <span className="font-semibold">Mega Store</span>
                 </div>
               </a>
             </SidebarMenuButton>

@@ -6,6 +6,7 @@ import { useUser } from "@clerk/nextjs";
 import { cloudinaryUrl } from "@/lib/definitions";
 import { CartContextType, CartItem, useCart } from "@/context/cart-context";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function CartPage() {
   const { user } = useUser();
@@ -54,7 +55,7 @@ export default function CartPage() {
           </header>
           <div className="mt-8">
             <ul className="space-y-4">
-              {cartItems.map((item, index) => (
+              {cartItems.length > 0 ? cartItems.map((item, index) => (
                 <li key={item.id + index} className="flex  items-center gap-4">
                   <Image
                     width={100}
@@ -96,7 +97,10 @@ export default function CartPage() {
                     </button>
                   </div>
                 </li>
-              ))}
+              )):<div className="text-center text-xl font-bold text-gray-900 sm:text-3xl">
+                <h1 className="p-4">Your Cart is empty</h1>
+                <Link className="p-4 text-indigo-700   rounded-md " href="/">Shop now</Link>
+                </div>}
             </ul>
 
             <div className="mt-8 flex justify-end border-t border-gray-100 pt-8">
@@ -145,11 +149,11 @@ export default function CartPage() {
                     </p>
                   </span>
                 </div>
-
                 <div className="flex justify-end">
                   <button
+                  disabled={total === 0}
                     onClick={() => router.push(`/checkout?amount=${total}`)}
-                    className="block rounded bg-gray-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-gray-600"
+                    className="block  rounded bg-indigo-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-indigo-600"
                   >
                     Checkout
                   </button>

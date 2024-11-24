@@ -64,7 +64,6 @@ export default function CartSmall({items}:{items:CartItem[]}) {
             </div>
           </li>
           ))}
-
           
         </ul>
 
@@ -77,8 +76,8 @@ export default function CartSmall({items}:{items:CartItem[]}) {
           </Link>
 
           <Link
-            href={`/checkout?amount=${total}`}
-            className="block rounded bg-gray-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-gray-600"
+            href={total === 0 ? "/" : `/checkout?amount=${total}`}
+            className="block rounded bg-indigo-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-indigo-600"
           >
             Checkout
           </Link>

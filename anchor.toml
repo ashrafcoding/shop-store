@@ -1,0 +1,10 @@
+[lcl-host]
+realm-apid = 'localhost'
+
+[org]
+apid = 'ashrafcoding'
+
+[service]
+apid = 'shop-store'
+category = 'javascript'
+cert-style = 'acme'

@@ -26,9 +26,9 @@ export async function getProductById(id: string) {
 export async function getOneFromCategory() {
   try {
     const result =
-      await sql`SELECT DISTINCT ON (p.category) p.id, p.name, p.price, p.category, p.description, p.img
-                FROM products p
-                ORDER BY p.category, p.id;`;
+      await sql`SELECT DISTINCT ON (p.category) p.id, p.name, p.price, p.category, p.description, p.img 
+      FROM products p ORDER BY p.category, RANDOM();`;
+
     return result.rows;
   } catch (error) {
     console.error("Database Error:", error);

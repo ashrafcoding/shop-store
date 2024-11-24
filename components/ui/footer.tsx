@@ -162,8 +162,8 @@ export default function Footer() {
                     Live Chat
                   </span>
                   <span className="relative flex size-2">
-                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-teal-400 opacity-75"></span>
-                    <span className="relative inline-flex size-2 rounded-full bg-teal-500"></span>
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-indigo-400 opacity-75"></span>
+                    <span className="relative inline-flex size-2 rounded-full bg-indigo-500"></span>
                   </span>
                 </a>
               </li>
@@ -210,7 +210,7 @@ export default function Footer() {
                 href="#"
                 rel="noreferrer"
                 target="_blank"
-                className="text-teal-700 transition hover:text-teal-700/75 dark:text-teal-500 dark:hover:text-teal-500/75"
+                className="text-indigo-700 transition hover:text-indigo-700/75 dark:text-indigo-500 dark:hover:text-indigo-500/75"
               >
                 <span className="sr-only">Facebook</span>
                 <svg
@@ -232,7 +232,7 @@ export default function Footer() {
                 href="#"
                 rel="noreferrer"
                 target="_blank"
-                className="text-teal-700 transition hover:text-teal-700/75 dark:text-teal-500 dark:hover:text-teal-500/75"
+                className="text-indigo-700 transition hover:text-indigo-700/75 dark:text-indigo-500 dark:hover:text-indigo-500/75"
               >
                 <span className="sr-only">Instagram</span>
                 <svg
@@ -254,7 +254,7 @@ export default function Footer() {
                 href="#"
                 rel="noreferrer"
                 target="_blank"
-                className="text-teal-700 transition hover:text-teal-700/75 dark:text-teal-500 dark:hover:text-teal-500/75"
+                className="text-indigo-700 transition hover:text-indigo-700/75 dark:text-indigo-500 dark:hover:text-indigo-500/75"
               >
                 <span className="sr-only">Twitter</span>
                 <svg
@@ -272,7 +272,7 @@ export default function Footer() {
                 href="#"
                 rel="noreferrer"
                 target="_blank"
-                className="text-teal-700 transition hover:text-teal-700/75 dark:text-teal-500 dark:hover:text-teal-500/75"
+                className="text-indigo-700 transition hover:text-indigo-700/75 dark:text-indigo-500 dark:hover:text-indigo-500/75"
               >
                 <span className="sr-only">GitHub</span>
                 <svg
@@ -294,7 +294,7 @@ export default function Footer() {
                 href="#"
                 rel="noreferrer"
                 target="_blank"
-                className="text-teal-700 transition hover:text-teal-700/75 dark:text-teal-500 dark:hover:text-teal-500/75"
+                className="text-indigo-700 transition hover:text-indigo-700/75 dark:text-indigo-500 dark:hover:text-indigo-500/75"
               >
                 <span className="sr-only">Dribbble</span>
                 <svg

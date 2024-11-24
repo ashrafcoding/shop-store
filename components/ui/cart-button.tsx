@@ -5,9 +5,11 @@ import { useRouter } from "next/navigation";
 import { insertUser, addToCart } from "@/lib/actions";
 import { CartContextType, useCart, CartItem } from "@/context/cart-context";
 import { Product, User } from "@/lib/definitions"; // Import the insertUser from "@/lib/actions";
+import { useState } from "react";
 
 export default function AddToCart({ product }: { product: Product }) {
   const {  setCartItems } = useCart() as CartContextType;
+  const [loading, setLoading] = useState(false)
   const { isSignedIn, user } = useUser();
   const newUser = {
     id: user?.id,
@@ -17,6 +19,7 @@ export default function AddToCart({ product }: { product: Product }) {
   const router = useRouter();
 
   async function handleClick() {
+    setLoading(true)
     if (!isSignedIn) {
       router.push("/sign-in");
     }
@@ -27,12 +30,15 @@ export default function AddToCart({ product }: { product: Product }) {
       product.price
     )) as CartItem[];
         setCartItems(items);
+        setLoading(false)
   }
+
   return (
     <div className="">
       <Button
+      disabled={loading}
         onClick={handleClick}
-        className="mt-4 bg-blue-500 hover:bg-blue-600"
+        className="mt-4 bg-indigo-500 hover:bg-indigo-600  disabled:opacity-50 disabled:animate-pulse"
       >
         Add to Cart
       </Button>

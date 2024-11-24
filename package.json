@@ -19,6 +19,7 @@
     "@tailwindcss/forms": "^0.5.9",
     "@types/bcrypt": "^5.0.2",
     "@vercel/postgres": "^0.8.0",
+    "anchor-pki": "^0.3.2",
     "bcrypt": "^5.1.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",

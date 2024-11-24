@@ -7,8 +7,8 @@ export default async function CategoryPage({params}:{params:Promise<{category:st
 
   return (
     <section>
-      <h2 className="text-2xl font-bold p-3">Get what you want from {category} section</h2>
-      <Image src={`/${category}.jpg`} width={500} height={300} alt={category} className="w-full h-96 p-3 object-cover" />
+      <h2 className="text-2xl font-bold capitalize p-5">Get what you want from {category} section</h2>
+      <Image src={`/${category}.jpg`} width={1000} height={200} alt={category} className="w-full  object-fill " />
       <div className=" grid grid-cols-2 gap-4  md:grid-cols-3 lg:grid-cols-4 justify-items-center">
       {products.map((product) => (
         <div key={product.id}>

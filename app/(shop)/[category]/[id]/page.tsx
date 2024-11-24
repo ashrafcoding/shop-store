@@ -5,6 +5,7 @@ import {
 import Image from "next/image";
 import AddToCart from "@/components/ui/cart-button";
 import { Product,cloudinaryUrl } from "@/lib/definitions";
+import ProductCard from "@/components/ui/product-card";
 
 export default async function ProductPage({
   params,
@@ -39,19 +40,7 @@ export default async function ProductPage({
       <h2 className="text-2xl font-bold mt-8">Recommended Products</h2>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-4">
         {similarItems.map((product) => (
-          <div key={product.id} className="bg-white rounded-lg shadow-md p-4">
-            <Image
-              src={cloudinaryUrl + product.img}
-              alt={product.name}
-              width={100}
-              height={100}
-              className="rounded-lg"
-            />
-            <h3 className="text-lg font-bold mt-2 line-clamp-2">
-              {product.name}
-            </h3>
-            <p>{product.price}</p>
-          </div>
+        <ProductCard key={product.id} product={product} />
         ))}
       </div>
     </div>
