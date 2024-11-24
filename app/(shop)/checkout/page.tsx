@@ -1,7 +1,7 @@
 'use client';
 import {Elements} from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
-import CheckoutForm from '@/components/ui/checkout-form';
+import CheckoutForm from '@/components/ui/checkout/checkout-form';
 import { useSearchParams } from 'next/navigation';
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid

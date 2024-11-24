@@ -1,11 +1,8 @@
-import {
-  getProductById,
-  getProductsByCategory,
-} from "@/lib/data";
+import { getProductById, getProductsByCategory } from "@/lib/data";
 import Image from "next/image";
-import AddToCart from "@/components/ui/cart-button";
-import { Product,cloudinaryUrl } from "@/lib/definitions";
-import ProductCard from "@/components/ui/product-card";
+import AddToCart from "@/components/ui/cart/cart-button";
+import { Product, cloudinaryUrl } from "@/lib/definitions";
+import ProductCard from "@/components/ui/home/product-card";
 
 export default async function ProductPage({
   params,
@@ -14,7 +11,7 @@ export default async function ProductPage({
 }) {
   const id = (await params).id;
   const category = (await params).category;
-  const product: Product = await getProductById(id) as Product;
+  const product: Product = (await getProductById(id)) as Product;
   const products = await getProductsByCategory(category);
 
   const similarItems = products.slice(0, 6);
@@ -40,10 +37,9 @@ export default async function ProductPage({
       <h2 className="text-2xl font-bold mt-8">Recommended Products</h2>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-4">
         {similarItems.map((product) => (
-        <ProductCard key={product.id} product={product} />
+          <ProductCard key={product.id} product={product} />
         ))}
       </div>
     </div>
-      
   );
 }
